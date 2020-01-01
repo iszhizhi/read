@@ -1,0 +1,48 @@
+<view class="blog">
+  <view class="blog-title">
+    <image class="blog-portrait" src="{{blog.avatarUrl}}"></image>
+    <view class="blog-box">
+      <view class="blog-nickName">{{blog.nickName}}</view>
+      <view class="blog-school">{{blog.school}}</view>
+    </view>
+    <view>
+      <view class="blog-readAllTime">{{blog.readAllTime}}水滴</view>
+      <view class="blog-time">{{_createTime}}</view>
+    </view>
+  </view>
+
+  <!-- 内容展示区 -->
+  <view class="not-detail">
+
+    <view style="width:{{isDetail?'100%':(blog.img.length==0?'100%':'475rpx')}}">
+      <view>
+        <view wx:if="{{isDetail}}" class="read">
+          <text>今日读书时长：{{blog.readTime}}分钟</text>
+        </view>
+        <view wx:if="{{isDetail}}" class="read">
+          <text>今日读书书籍：{{blog.readBook}}</text>
+        </view>
+
+      </view>
+      <view class="blog-content {{isDetail?'':'not-detail-content'}}">      <text>《{{blog.readBook}}》：</text>
+        <text>{{blog.content}}</text>
+      </view>
+      <view class="read" wx:if="{{isDetail}}">
+        <text>日行一环保：{{blog.envirment}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!isDetail&&blog.img.length!=0}}" class="not-detail-img">
+      <image class="notDetail-img" src="{{blog.img[0]}}" mode="aspectFill" catch:tap="onPreviewImage" data-imgsrc="{{blog.img[0]}}" data-imgs="{{blog.img}}"></image>
+      <text class="img-number">{{blog.img.length==0?" ":blog.img.length}}</text>
+    </view>
+
+  </view>
+
+  <view class="blog-img" wx:if="{{blog.img}}">
+    <!-- 详情界面的图片展示 -->
+    <block wx:for="{{blog.img}}" wx:if="{{isDetail}}" wx:key="{{index}}">
+      <image class="img" src="{{item}}" mode="aspectFill" catch:tap="onPreviewImage" data-imgsrc="{{item}}" data-imgs="{{blog.img}}"></image>
+    </block>
+  </view>
+</view>

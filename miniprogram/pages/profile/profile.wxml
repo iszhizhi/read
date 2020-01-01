@@ -1,0 +1,88 @@
+<view class='container'>
+  <!-- 用户信息，背景图 -->
+  <view class="user-info">
+    <view class="info">
+      <view class='avatar-url'>
+        <open-data type='userAvatarUrl'>
+        </open-data>
+      </view>
+      <view class='nick-name'>
+        <open-data type='userNickName'></open-data>
+      </view>
+
+      <view class="address-school">
+        <view class="address">
+          <open-data type='userCountry'></open-data>
+        </view>
+        <view class="school">
+          <input bindblur="updateSchool" value="{{school}}" placeholder="请输入您的学校"></input>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 日历 记录 喜欢 -->
+
+  <view class="user-like">
+    <!-- 日历和记录的title -->
+
+    <view  class="title">
+      <text class="{{isCalendar?'active':''}}" catchtap="chooseCalendar">日历</text>
+      <text class="{{isRecord?'active':''}}" catchtap="chooseRecord">记录</text>
+    </view>
+
+    <!-- 日历 打卡天数 喜欢 -->
+    <view hidden="{{!isCalendar}}">
+      <view class="calendar">
+        <calendar bindprevMonth="prev" bindnextMonth="next"  calendar-style="calendar"   days-color="{{dayStyle}}" weeks-type='cn' binddayClick='clickDay' />
+      </view>
+
+      <view class="record-days">
+        <view>
+          <text class="title-days">累计打卡天数</text>
+          <text class="days">{{allDays}}</text>
+        </view>
+        <view class="center-background"></view>
+        <view>
+          <text class="title-days">连续打卡天数</text>
+          <text class="days">{{limitDays}}</text>
+        </view>
+      </view>
+
+      <view class="likes">
+        <text class="likes-text">我的喜欢</text>
+      </view>
+
+      <view class="title">
+        <text class="{{isLikeBlog?'active':''}}" catchtap="isLikeBlog">博客</text>
+        <text class="{{isLikeRecommend?'active':''}}" catchtap="isLikeRecommend">推荐</text>
+      </view>
+      <!-- 喜欢的博客列表 -->
+      <view hidden="{{!isLikeBlog}}"  class="like-list">
+        <block wx:for='{{likeBlog}}'>
+          <view class="user-blog" data-type="{{item.type}}" catchtap="detail" data-blogid="{{item._id}}" style="background-color:{{item.color}}">
+            <view class="user-blog-time">{{item.createTime}}</view>
+            <view class="user-blog-content">{{item.content}}</view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+    <!-- 喜欢的推荐卡片 -->
+    <view hidden="{{isLikeBlog}}" class="Recommend">
+    <recommend-card class='recommend-list' recommendList="{{likeRecommend}}" />
+    </view>
+    <!-- 打卡记录 -->
+    <view class="scroll"  wx:if="{{isRecord}}">
+
+      <block wx:for='{{record}}'>
+        <view class="user-blog" catchtap="detail" data-type="{{item.type}}" data-blogid="{{item._id}}" style="background-color:{{item.color}}">
+          <view class="user-blog-time">{{item.createTime}}</view>
+          <view class="user-blog-content">{{item.content}}</view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+</view>

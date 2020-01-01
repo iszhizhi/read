@@ -1,0 +1,4 @@
+<view class='record-container'>
+  <view class="record-time"></view>
+  <view class="record-content"></view>
+</view>

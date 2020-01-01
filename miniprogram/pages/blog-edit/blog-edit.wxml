@@ -1,0 +1,101 @@
+<view hidden="{{isProtect}}" class="container">
+  <!-- 用户头像 姓名 -->
+
+  <view class="userInfo">
+    <view class="avatar-url">
+      <open-data type='userAvatarUrl'></open-data>
+    </view>
+    <view class="nick-name">
+      <open-data type='userNickName'></open-data>
+    </view>
+  </view>
+
+  <!-- 读书时间与书籍环保 -->
+  <view class="header">
+
+    <view class='read'>
+      <text>累计读书时长：{{readAllTime}}</text>
+    </view>
+
+    <view class="read">
+      <text>今日读书时长:</text>
+      <input focus="true" type="number" value="{{readTime}}" style="width:{{timeWidth}}rpx" bindinput="getReadTime" class="read-time"></input>
+      <text>分钟</text>
+    </view>
+
+    <view class="read">
+      <text>今日读书书籍:《</text>
+      <input style="width:{{bookWidth}}rpx" value="{{readBook}}" bindinput="getReadBook" class="read-book"></input>
+      <text>》</text>
+    </view>
+    <view class="read">
+
+      <view class="picker" catchtap="protectEnvirement" style="height:60rpx;width:240rpx;;color:#fff;background-color:#86C166;">
+        日行一环保
+      </view>
+
+    </view>
+  </view>
+  <!-- 读书感悟 -->
+  <textarea hidden="{{writeSchool}}" class="content" placeholder-style="z-index:1" placeholder="读书感悟..." bindinput="onInput" maxlength="-1"  ></textarea>
+
+  <view class="image-list">
+    <!-- 显示图片 -->
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="image-wrap">
+        <image class="image" src="{{item}}" mode="aspectFill" bind:tap="onPreviewImage" data-imgsrc="{{item}}"></image>
+        <i class="iconfont icon-shanchu" bind:tap="onDelImage" data-index="{{index}}"></i>
+      </view>
+    </block>
+
+    <!-- 选择图片 -->
+    <view class="image-wrap selectphoto" hidden="{{!selectPhoto}}" bind:tap="onChooseImage">
+      <i class="iconfont icon-jiahao"></i>
+    </view>
+
+  </view>
+</view>
+
+<view hidden="{{isProtect}}" class="footer" >
+  <text class="words-num">{{wordsNum}}</text>
+  <button style="background-color: #86c166" class="send-btn" bind:tap="send">发布</button>
+</view>
+
+
+<!-- 环保打卡界面 -->
+<view hidden="{{!isProtect}}" class="isProtect">
+  <view class="isProtect-view">
+    <view class="money-view">
+      <image class="money" src="/images/icons/money.png"></image>
+      <view class="money-title">
+      <text style="letter-spacing:10rpx;">日行一环保</text>
+      <text>中国绿发会</text>
+      </view>
+    </view>
+    <view class="isProtect-view-choose">
+      <!-- 对于用户点击时选择的打卡 -->
+      <block wx:for="{{array}}">
+        <view class="item" catchtap="getUserChooseProtect" data-choose="{{item}}" wx:key="{{index}}">
+          <text style="margin:10rpx;">{{item}}</text>
+        </view>
+      </block>
+    </view>
+    <!-- 用户选择的打卡记录 -->
+    <view style="margin:10rpx;" wx:for="{{userChooseProtect}}">
+      <text>{{item}}</text>
+    </view>
+    <textarea  placeholder="点击上面的打卡或者自己输入都可以哦" bindinput="inputProtect" style="width:100%;margin-top:30rpx;"></textarea>
+    <button catchtap="finishedProtect" class="isProtect-button">完成</button>
+  </view>
+</view>
+
+<!-- 拟态框 -->
+<view class="school" wx:if="{{writeSchool}}">
+  <view class="school-view">
+    <text class="school-title">填写学校才能发布哦 </text>
+    <view class="school-view-input">
+      <input class="school-input" focus="true" bindinput="inputSchool" style="height:100%;width:100%"></input>
+    </view>
+    <button catchtap="updateSchool" class="school-button">确定</button>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+  <view catchtap="onLike" class="like-view" >
+    <image class="image" src='/images/icons/fullHeart.png'></image>
+    <text class="likes">{{likes}}</text>
+  </view>

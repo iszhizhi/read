@@ -1,0 +1,33 @@
+<!--pages/recommend-detail/recommend-detail.wxml-->
+<!-- 推荐界面 -->
+<view class="recommend-container">
+  <view class="recommend-createTime">{{recommend.createTime}}</view>
+  <image class="recommend-image" mode="widthFix" src="{{recommend.img}}"></image>
+  <view class="recommend-content">
+    <text>{{recommend.content}}</text>
+  </view>
+</view>
+
+
+
+  <!-- 评论点赞tab -->
+  <view class="tab">
+    <view class="tab-item">评论列表</view>
+  </view>
+
+  <!-- 评论内容列表 -->
+  <scroll-view class="comment-list">
+    <!-- 评论 -->
+    <block wx:for="{{commentList}}" wx:key="_id">
+      <view class="comment">
+        <view class="comment-title">
+          <image class="comment-portrait" src="{{item.avatarUrl}}"></image>
+          <text class="comment-nickname">{{item.nickName}}</text>
+        </view>
+        <view class="comment-content">
+          {{item.content}}
+        </view>
+        <view class="comment-time">{{item.createTime}}</view>
+      </view>
+    </block>
+  </scroll-view>

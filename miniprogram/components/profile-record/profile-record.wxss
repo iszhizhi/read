@@ -1,0 +1,15 @@
+/* components/profile-record/profile-record.wxss */
+
+.record-container {
+  width: 80%;
+  border-radius: 20px;
+}
+
+.record-time {
+}
+
+.record-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

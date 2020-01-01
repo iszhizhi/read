@@ -1,0 +1,7 @@
+<x-search modalShow="{{modalShow}}">
+<view slot="modal-content" >
+  <textarea name="content" bindinput="onInput" class="comment-content" placeholder="输入您的关键字" value="{{content}}" fixed="true"></textarea>
+  <button class="send" bindtap="onSearch">搜索</button>
+</view>
+</x-search>
+

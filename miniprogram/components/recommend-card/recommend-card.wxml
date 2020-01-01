@@ -1,0 +1,17 @@
+<view class="container" wx:for="{{recommendList}}" bindtap="onDetail" data-id="{{item._id}}">
+  <view class="top">
+    <view class="title">
+    <text>句子</text>
+    </view>
+    <view class="like">
+      <image style="height:30rpx;width:35rpx" src="/images/icons/fullHeart.png"></image>
+      <text>{{item.likes}}</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <image mode="widthFix" class="img" src="{{item.img}}"></image>
+    <text class="item-content">{{item.content}}</text>
+  </view>
+
+</view>

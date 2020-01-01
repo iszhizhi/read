@@ -1,0 +1,5 @@
+@import "iconfont.wxss";
+.icons{
+  width:50rpx;
+  height: 50rpx;
+}

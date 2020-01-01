@@ -1,0 +1,8 @@
+{
+"navigationStyle":"custom",
+
+"usingComponents":{
+  "calendar": "plugin://calendar/calendar",
+  "recommend-card":"/components/recommend-card/recommend-card"
+}
+}

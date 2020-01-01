@@ -1,0 +1,39 @@
+<view class="container">
+
+  <!-- 顶部title -->
+  <view class="top-title">
+    <view class="top-title-view">
+      <view catchtap="theNew" class="title {{isNew?'title-active':''}}">
+        <text>最新</text>
+      </view>
+      <view catchtap="theHot" style="margin-left:50rpx;" class="title {{!isNew?'title-active':''}}">
+        <text>热门</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 三个图标，刷新，搜索，添加博客 绝对定位-->
+  <view style="z-index:99" class="publish-container">
+    <image catchtap="showSearch" style="margin-bottom:80rpx" class="icons" src="/images/icons/search.png"></image>
+    <image catchtap='onPublish' class="icons" src="/images/icons/fabu.png"></image>
+  </view>
+
+  <!-- 搜索 -->
+
+
+  <!-- 博客卡片列表 -->
+  <view scroll-y='true' class=" blog-list ">
+    <block wx:for='{{blogList}}'>
+      <view class="blog-panel ">
+        <x-blog-card isDetail="{{isDetail}}" blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
+        <x-blog-ctrl likes='{{item.likes}}' blogId="{{item._id}}" blog="{{item}}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-fenxiang="icon-fenxiang " />
+      </view>
+    </block>
+  </view>
+
+
+  <!-- 底部弹出层 -->
+  <x-login modalShow="{{modalShow}}" bind:loginsuccess="onLoginSuccess " bind:loginfail="onLoginFail ">
+  </x-login>
+  <x-search bind:search="search" modalShow="{{isSearch}}"></x-search>
+</view>

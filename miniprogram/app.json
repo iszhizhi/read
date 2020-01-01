@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/playlist/playlist",
+    "pages/blog/blog",
+    "pages/blog-edit/blog-edit",
+    "pages/profile/profile",
+    "pages/profile-bloghistory/profile-bloghistory",
+    "pages/recommend-detail/recommend-detail"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#86c166",
+    "navigationBarTitleText": "梦工厂",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#86c166",
+    "list": [
+      {
+        "pagePath": "pages/playlist/playlist",
+        "text": "梦工厂",
+        "iconPath": "images/icons/first.png",
+        "selectedIconPath": "images/icons/choose-first.png"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "水滴石穿",
+        "iconPath": "images/icons/square.png",
+        "selectedIconPath": "images/icons/choose-square.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/icons/mine.png",
+        "selectedIconPath": "images/icons/choose-mine.png"
+      }
+    ]
+  },
+  "plugins":{
+    "calendar":{
+      "version":"1.1.3",
+      "provider":"wx92c68dae5a8bb046"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

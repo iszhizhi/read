@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "x-search":"/components/bottom-modal/bottom-modal"
+  }
+}

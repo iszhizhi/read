@@ -1,0 +1,43 @@
+<view class="container">
+  <!-- header封面图和上面的日期 -->
+  <view class="date">
+    <text>{{recommend.createTime}}</text>
+  </view>
+  <image   class="title-image" src="{{recommend.img}}"></image>
+  <!-- 推荐内容 -->
+  <view class="center">
+  <view class="content">
+    <text decode="true" class="content-detail">{{recommend.content}}</text>
+  </view>
+
+  <view class="bottom-button">
+    <!-- 推荐名，用户可自由选择推荐 -->
+    <view class="move">
+      <image class="icons" catchtap="preview" src="{{isFirst?'/images/icons/none-preview.png':'/images/icons/preview.png'}}"></image>
+      <text style="font-size:32rpx">{{recommend.author}}《{{recommend.bookName}}》</text>
+      <image class="icons" catchtap="next" src="{{isLast?'/images/icons/none-next.png':'/images/icons/next.png'}}"></image>
+    </view>
+    <!-- footer评论，喜欢，分享 -->
+    <view class="first-icons" style="position:relative" >
+      <image catchtap="onComment" class="icons bottom" src="/images/icons/comment.png"></image>
+      <image class="icons bottom" catchtap="like" src='/images/icons/fullHeart.png'></image>
+      <text style="position:absolute;left:275rpx;bottom:140rpx">{{recommend.likes}}</text>
+      <view>
+      <button open-type="share"  class="share-btn" hover-class="share-hover">
+      <i class="iconfont icon-fenxiang icon bottom"></i>
+    </button>
+    </view>
+    </view>
+  </view>
+</view>
+</view>
+
+
+<x-login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess" bind:loginfail="onLoginfail" />
+
+<x-bottom-modal modalShow="{{modalShow}}">
+  <form slot="modal-content" report-submit="true" bind:submit="onSend">
+    <textarea name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea>
+    <button class="send" form-type="submit">发送</button>
+  </form>
+</x-bottom-modal>

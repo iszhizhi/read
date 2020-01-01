@@ -1,0 +1,62 @@
+page {
+  height: 100%;
+}
+
+.top-title {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  height: 160rpx;
+  z-index: 99;
+  }
+
+.top-title-view {
+  position: fixed;
+  top: 65rpx;
+  left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.title {
+  font-family: "STZhongsong"
+}
+
+.icons{
+  width: 60rpx;
+  height: 60rpx;
+  
+}
+
+.blog-list{
+  padding-top: 140rpx;
+}
+
+.title-active {
+  font-size: 30px;
+  font-weight: 500;
+  color: #86c166;
+}
+
+.icon-fabu {
+  font-size: 48rpx;
+}
+
+.publish-container {
+  width: 68rpx;
+  display: flex;
+  align-items: center;
+flex-direction: column;
+  position: fixed;
+  right: 30rpx;
+  bottom: 100rpx;
+}
+
+.blog-panel {
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+

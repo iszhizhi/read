@@ -1,0 +1,106 @@
+page {
+  background-color: #f1f1f1;
+}
+
+.blog {
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.blog-title {
+  display: flex;
+  align-items: center;
+}
+
+.blog-portrait {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.not-detail text {
+  font-size: 15px;
+  font-weight: 350;
+}
+
+.blog-box {
+  flex: 1;
+}
+
+.blog-time {
+  font-size: 24rpx;
+  color: #939393;
+}
+
+.blog-content {
+  font-family: "STFangsong";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.read {
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.blog-img {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.blog-img .img {
+  width: 230rpx;
+  height: 230rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.blog-img .img:nth-child(3n) {
+  margin-right: 0;
+}
+
+.blog-nickName {
+  font-size: 30rpx;
+  font-family:  "STZhongsong";
+ font-weight: 300;
+}
+
+.not-detail-img {
+  position: relative;
+  height: 153rpx;
+  width: 230rpx;
+}
+
+.not-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10rpx;
+}
+
+.not-detail-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.img-number {
+  position: absolute;
+  right: 5rpx;
+  top: 5rpx;
+}
+
+.blog-readAllTime{
+  letter-spacing: 5rpx;
+  text-align: right;
+}
+
+.blog-school{
+    font-size: 30rpx;
+  font-family:  "STZhongsong";
+ font-weight: 300;
+}

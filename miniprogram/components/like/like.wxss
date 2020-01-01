@@ -1,0 +1,15 @@
+/* components/like/like.wxss */
+.likes{
+  position: absolute;
+  top: 0;
+  right: 70rpx;
+}
+
+.image{
+  height: 36rpx;
+  width: 36rpx;
+}
+
+.like-view{
+  width: 100%;
+}
